@@ -73,6 +73,7 @@ func (h *AuthHandler) Register(c *fiber.Ctx) error {
 		Name:     "my_cookie",
 		Value:    newUser.Sid,
 		Expires:  time.Now().Add(24 * time.Hour),
+		Secure:   true,
 		HTTPOnly: true,
 	})
 	resp := fiber.Map{
